@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Deeptesh Parab — HR Business Partner. 3 years building people infrastructure that lets great teams do their best work."/>
+<title>Deeptesh Parab — People Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--surface:#111111;--surface2:#181818;
+  --white:#F4F0E8;--cream:#C8C0AE;--muted:#6E6A62;
+  --accent:#C8FF00;--accent-dim:rgba(200,255,0,0.12);
+  --border:rgba(244,240,232,0.08);--border2:rgba(244,240,232,0.14);
+}
+html{background:var(--bg);scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scanLine{0%{top:-2px}100%{top:100%}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes borderGrow{from{width:0}to{width:60%}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,255,0,0)}50%{box-shadow:0 0 28px 6px rgba(200,255,0,0.2)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 48px;border-bottom:1px solid var(--border);
+  background:rgba(8,8,8,0.88);backdrop-filter:blur(16px);
+  animation:fadeIn 0.6s ease forwards;
+}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.12em;color:var(--white);transition:color 0.3s}
+.nav-logo:hover{color:var(--accent)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--muted);transition:color 0.2s;
+  position:relative;padding-bottom:3px;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:1px;
+  background:var(--accent);transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:8px 18px;border:1px solid var(--accent);color:var(--accent);
+  cursor:pointer;background:transparent;position:relative;overflow:hidden;transition:color 0.25s;
+}
+.nav-cta::before{
+  content:'';position:absolute;inset:0;background:var(--accent);
+  transform:translateX(-101%);transition:transform 0.25s ease;z-index:0;
+}
+.nav-cta span{position:relative;z-index:1}
+.nav-cta:hover::before{transform:translateX(0)}
+.nav-cta:hover{color:var(--bg)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 48px 72px;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(200,255,0,0.05) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 60% at 10% 80%,rgba(200,255,0,0.03) 0%,transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);
+  animation:fadeIn 2s ease forwards;
+}
+.hero-scan{
+  position:absolute;left:0;right:0;height:1px;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(200,255,0,0.25),transparent);
+  animation:scanLine 5s linear infinite;
+}
+.hero-tag{
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.25em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;position:relative;z-index:1;
+  animation:slideRight 0.8s 0.2s ease both;
+}
+.hero-tag::before{
+  content:'REC';background:var(--accent);color:var(--bg);
+  padding:2px 7px;font-size:9px;font-weight:700;
+  animation:pulse 2s 1.2s ease infinite;
+}
+h1{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,110px);
+  line-height:0.92;letter-spacing:0.04em;color:var(--white);
+  position:relative;z-index:1;margin-bottom:28px;white-space:nowrap;
+  animation:fadeUp 0.9s 0.35s ease both;
+}
+h1 em{color:var(--accent);font-style:normal}
+.hero-sub{
+  font-size:clamp(13px,1.5vw,16px);font-weight:300;color:var(--cream);
+  max-width:540px;line-height:1.85;position:relative;z-index:1;margin-bottom:0;
+  border-left:2px solid var(--accent);padding-left:18px;
+  animation:fadeUp 0.9s 0.55s ease both;
+}
+.hero-line{
+  position:relative;z-index:1;height:1px;width:0;
+  background:var(--border2);margin-top:36px;
+  animation:borderGrow 1.2s 1.3s ease both;
+}
+.hero-scroll{
+  position:absolute;right:48px;bottom:72px;z-index:1;
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.2em;
+  color:var(--muted);writing-mode:vertical-rl;display:flex;align-items:center;gap:16px;
+  animation:fadeIn 1s 1.6s ease both;
+}
+.hero-scroll::after{content:'';width:1px;height:60px;background:var(--muted)}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.metric{
+  padding:36px 24px;text-align:center;border-right:1px solid var(--border);
+  position:relative;overflow:hidden;transition:background 0.35s;
+  opacity:1;transform:none;
+}
+.metric.visible{opacity:1;transform:translateY(0);transition:opacity 0.55s ease,transform 0.55s ease,background 0.35s}
+.metric:last-child{border-right:none}
+.metric:hover{background:var(--accent-dim)}
+.metric::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:0;height:2px;background:var(--accent);transition:width 0.4s ease;
+}
+.metric:hover::after{width:60%}
+.metric-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent);line-height:1;display:block;margin-bottom:6px}
+.metric-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.14em;line-height:1.5}
+
+/* SECTION SHARED */
+section{padding:96px 48px}
+.section-tag{
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.25em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:48px;
+  display:flex;align-items:center;gap:16px;
+  opacity:1;transform:none;transition:opacity 0.5s ease,transform 0.5s ease;
+}
+.section-tag.visible{opacity:1;transform:translateX(0)}
+.section-tag::after{content:'';flex:1;height:1px;background:var(--border);max-width:120px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-big{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.2vw,48px);
+  line-height:1.1;color:var(--white);margin-bottom:32px;
+  opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.about-big.visible{opacity:1;transform:translateY(0)}
+.about-big span{color:var(--accent)}
+.about-body{
+  font-size:15px;font-weight:300;color:var(--cream);line-height:1.9;margin-bottom:24px;
+  opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.about-body.visible{opacity:1;transform:translateY(0)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.pill{
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);border:1px solid var(--border2);
+  padding:6px 14px;transition:all 0.25s;
+  opacity:1;transform:none;
+}
+.pill.visible{opacity:1;transform:translateY(0);transition:opacity 0.4s ease,transform 0.4s ease,color 0.25s,border-color 0.25s,background 0.25s}
+.pill:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-dim)}
+
+/* EXPERIENCE */
+.exp-section{background:var(--surface)}
+.exp-grid{display:flex;flex-direction:column;gap:0}
+.job{
+  display:grid;grid-template-columns:220px 1fr;gap:48px;
+  padding:40px 0;border-bottom:1px solid var(--border);align-items:start;
+  opacity:1;transform:none;transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.job.visible{opacity:1;transform:translateY(0)}
+.job:first-child{padding-top:0}
+.job:last-child{border-bottom:none;padding-bottom:0}
+.job-date{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:var(--accent);margin-bottom:8px}
+.job-company{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.job-title-text{font-size:18px;font-weight:500;color:var(--white);margin:8px 0 16px}
+.job-bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
+.job-bullets li{font-size:13px;color:var(--cream);padding-left:20px;position:relative;line-height:1.65;font-weight:300}
+.job-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px;top:1px;transition:transform 0.2s}
+.job-bullets li:hover::before{transform:translateX(5px)}
+.job-bullets li strong{color:var(--white);font-weight:500}
+
+/* WINS */
+.wins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.win{
+  background:var(--bg);padding:40px 32px;
+  position:relative;overflow:hidden;
+  opacity:1;transform:none;
+  transition:background 0.35s,transform 0.3s,opacity 0.6s ease;
+}
+.win.visible{opacity:1;transform:translateY(0)}
+.win::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;
+}
+.win:hover{background:var(--surface2);transform:translateY(-4px)}
+.win:hover::before{transform:scaleX(1)}
+.win-num{
+  font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--accent);
+  line-height:1;margin-bottom:8px;transition:transform 0.3s ease;display:inline-block;
+}
+.win:hover .win-num{transform:scale(1.07)}
+.win-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:10px}
+.win-desc{font-size:12px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* SKILLS */
+.skills-section{background:var(--surface)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.skill-group-title{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.stag{
+  font-size:11px;color:var(--muted);border:1px solid var(--border);
+  padding:5px 10px;letter-spacing:0.04em;
+  opacity:1;transform:none;transition:opacity 0.4s ease,transform 0.4s ease,border-color 0.25s,color 0.25s,background 0.25s;
+}
+.stag.visible{opacity:1;transform:scale(1)}
+.stag:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+.tools-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
+.tool-badge{
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--cream);border:1px solid var(--border2);padding:8px 16px;
+  display:flex;align-items:center;gap:8px;
+  opacity:1;transform:none;transition:opacity 0.4s ease,transform 0.4s ease,border-color 0.25s,color 0.25s;
+}
+.tool-badge.visible{opacity:1;transform:translateY(0)}
+.tool-badge:hover{border-color:var(--accent);color:var(--accent)}
+.tool-dot{width:5px;height:5px;background:var(--accent);flex-shrink:0}
+
+/* CONTACT */
+.contact-section{text-align:center;padding:120px 48px;position:relative;overflow:hidden}
+.contact-section::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(200,255,0,0.04) 0%,transparent 70%);
+}
+.contact-big{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,8vw,100px);
+  line-height:0.9;color:var(--white);margin-bottom:24px;
+  position:relative;z-index:1;
+  opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.contact-big.visible{opacity:1;transform:translateY(0)}
+.contact-big span{color:var(--accent)}
+.contact-sub{
+  font-size:15px;font-weight:300;color:var(--cream);margin-bottom:60px;
+  max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8;
+  position:relative;z-index:1;
+  opacity:1;transform:none;transition:opacity 0.6s 0.2s ease,transform 0.6s 0.2s ease;
+}
+.contact-sub.visible{opacity:1;transform:translateY(0)}
+.contact-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;position:relative;z-index:1}
+
+/* ── CTA EMAIL — full accent, shimmer ── */
+.cta-email{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:20px 40px;color:var(--bg);font-weight:700;
+  display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+  position:relative;overflow:hidden;
+  background:linear-gradient(90deg,var(--accent) 0%,#e6ff4d 40%,var(--accent) 60%,#d4ff33 100%);
+  background-size:300% 100%;background-position:0% center;
+  transition:background-position 0.6s ease,transform 0.25s,box-shadow 0.25s;
+  animation:glowPulse 3s 2.5s ease infinite;
+  opacity:1;transform:none;
+}
+.cta-email.visible{
+  opacity:1;transform:translateY(0);
+  transition:opacity 0.6s 0.3s ease,transform 0.6s 0.3s ease,
+             background-position 0.6s,box-shadow 0.25s;
+}
+.cta-email:hover{
+  background-position:100% center;
+  transform:translateY(-4px);
+  box-shadow:0 10px 36px rgba(200,255,0,0.35);
+}
+.cta-email .lbl{position:relative;z-index:1}
+
+/* ── CTA LINKEDIN — dark with bright accent border & sweep ── */
+.cta-linkedin{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:20px 40px;background:var(--surface2);color:var(--white);font-weight:500;
+  display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+  border:1.5px solid rgba(200,255,0,0.5);
+  position:relative;overflow:hidden;
+  transition:color 0.3s,border-color 0.3s,transform 0.25s,background 0.3s;
+  opacity:1;transform:none;
+}
+.cta-linkedin.visible{opacity:1;transform:translateY(0);transition:opacity 0.6s 0.45s ease,transform 0.6s 0.45s ease,color 0.3s,border-color 0.3s,background 0.3s}
+.cta-linkedin::before{
+  content:'';position:absolute;inset:0;
+  background:var(--accent-dim);transform:translateX(-101%);transition:transform 0.3s ease;z-index:0;
+}
+.cta-linkedin .lbl{position:relative;z-index:1}
+.cta-linkedin:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-4px)}
+.cta-linkedin:hover::before{transform:translateX(0)}
+
+/* ── CTA CALL — outline, fill on hover ── */
+.cta-call{
+  font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  padding:20px 40px;background:transparent;color:var(--cream);font-weight:500;
+  display:inline-flex;align-items:center;gap:12px;cursor:pointer;
+  border:1.5px solid var(--border2);
+  position:relative;overflow:hidden;
+  transition:color 0.3s,border-color 0.3s,transform 0.25s;
+  opacity:1;transform:none;
+}
+.cta-call.visible{opacity:1;transform:translateY(0);transition:opacity 0.6s 0.6s ease,transform 0.6s 0.6s ease,color 0.3s,border-color 0.3s}
+.cta-call::before{
+  content:'';position:absolute;inset:0;background:rgba(244,240,232,0.07);
+  transform:translateX(-101%);transition:transform 0.3s ease;z-index:0;
+}
+.cta-call .lbl{position:relative;z-index:1}
+.cta-call:hover{color:var(--white);border-color:rgba(244,240,232,0.4);transform:translateY(-4px)}
+.cta-call:hover::before{transform:translateX(0)}
+
+/* icon badge */
+.cta-icon{
+  width:20px;height:20px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:10px;flex-shrink:0;font-style:normal;
+}
+.cta-email .cta-icon{background:rgba(0,0,0,0.2)}
+.cta-linkedin .cta-icon{background:rgba(200,255,0,0.15);color:var(--accent)}
+.cta-call .cta-icon{background:rgba(244,240,232,0.08)}
+
+/* FOOTER */
+footer{
+  padding:24px 48px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.12em;color:var(--border2);transition:color 0.3s}
+.footer-logo:hover{color:var(--muted)}
+.footer-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;color:var(--muted)}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hero{padding:0 24px 56px}
+  h1{white-space:normal}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(3),.metric:nth-child(4){border-top:1px solid var(--border)}
+  section{padding:64px 24px}
+  .about-grid{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:16px}
+  .wins-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .contact-section{padding:80px 24px}
+  .contact-links{flex-direction:column;align-items:center}
+  .cta-email,.cta-linkedin,.cta-call{width:100%;max-width:320px;justify-content:center}
+  footer{padding:20px 24px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">DP</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#wins">Wins</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#91f5f4f4e1e5f4e2f9f9d1f6fcf0f8fdbff2fefc" class="nav-cta"><span>Hire Me</span></a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-tag">// HR Business Partner · People Lead · Talent Acquisition</div>
+  <h1>Deeptesh <em>Parab</em></h1>
+  <p class="hero-sub">
+    I own the outcomes I drive. Every hire, every policy, every culture decision — I put my name on it and make it work. I build people infrastructure that holds under pressure, scales with growth, and makes great teams inevitable.
+  </p>
+  <div class="hero-line"></div>
+  <div class="hero-scroll">scroll</div>
+</section>
+
+<div class="metrics">
+  <div class="metric">
+    <span class="metric-num">3+</span>
+    <span class="metric-label">Years<br>in HR</span>
+  </div>
+  <div class="metric">
+    <span class="metric-num">50%</span>
+    <span class="metric-label">Attrition<br>Reduction</span>
+  </div>
+  <div class="metric">
+    <span class="metric-num">94%</span>
+    <span class="metric-label">Great Place<br>to Work Score</span>
+  </div>
+  <div class="metric">
+    <span class="metric-num">80%</span>
+    <span class="metric-label">OKR<br>Adoption</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-tag">Who I Am</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-big">People are the <span>product.</span> I build the team.</div>
+    </div>
+    <div>
+      <p class="about-body">
+        I don't wait to be told what HR should do — I decide, I build, and I own the result. Three years across high-growth startups and 500+ employee organisations have taught me one thing: people problems left unaddressed become business problems. So I address them early, boldly, and with data behind every call.
+      </p>
+      <p class="about-body" style="transition-delay:0.15s">
+        I've built hiring engines from the ground up, cut attrition in half, driven a 94% satisfaction score through Great Place to Work certification, and embedded OKRs across entire organisations. I don't execute HR processes — I design people systems that make great outcomes repeatable.
+      </p>
+      <p class="about-body" style="transition-delay:0.3s">
+        Fast-moving environments don't intimidate me. Ambiguity is where I do my best thinking. I show up with a plan, adapt without excuses, and hold myself accountable to the numbers.
+      </p>
+      <div class="pill-row">
+        <span class="pill" style="transition-delay:0.1s">HRBP</span>
+        <span class="pill" style="transition-delay:0.16s">Talent Acquisition</span>
+        <span class="pill" style="transition-delay:0.22s">Culture Building</span>
+        <span class="pill" style="transition-delay:0.28s">HR Analytics</span>
+        <span class="pill" style="transition-delay:0.34s">OKR Design</span>
+        <span class="pill" style="transition-delay:0.4s">DEI</span>
+        <span class="pill" style="transition-delay:0.46s">Great Place to Work</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="exp-section">
+  <div class="section-tag">Experience</div>
+  <div class="exp-grid">
+    <div class="job">
+      <div class="job-meta">
+        <div class="job-date">OCT 2025 → PRESENT</div>
+        <div class="job-title-text">People & Growth Lead</div>
+        <div class="job-company">My Equation</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Architected the <strong>full talent function from zero</strong> — campus hiring with 60% selection rate & 75% offer acceptance</li>
+        <li>Accelerated new hire productivity by <strong>30%</strong> via 30-60-90 day onboarding with role-specific induction & manager accountability</li>
+        <li>Built <strong>headcount forecasting models</strong> tied to quarterly revenue targets — gave founders a clear hiring roadmap</li>
+        <li>Led performance infrastructure rollout: OKRs, continuous feedback loops, manager enablement</li>
+        <li>Established complete HR policy framework from scratch — SOPs, KPIs, handbook, offboarding protocols</li>
+      </ul>
+    </div>
+    <div class="job" style="transition-delay:0.15s">
+      <div class="job-meta">
+        <div class="job-date">FEB 2025 → JUL 2025</div>
+        <div class="job-title-text">Associate Manager — HR Ops</div>
+        <div class="job-company">Secure Debt Management</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Halved monthly attrition from <strong>15% → 7%</strong> through data-led retention: stay interviews, manager coaching & R&R</li>
+        <li>Expanded onboarding capacity by <strong>80%</strong> through structured outsourcing and vendor management</li>
+        <li>Secured <strong>94% employee satisfaction</strong> score leading full Great Place to Work certification end-to-end</li>
+        <li>Built attrition classification framework delivering quarterly workforce analytics that shaped leadership hiring decisions</li>
+        <li>Led POSH & labour law overhaul achieving <strong>100% regulatory compliance</strong> across all departments</li>
+      </ul>
+    </div>
+    <div class="job" style="transition-delay:0.3s">
+      <div class="job-meta">
+        <div class="job-date">FEB 2023 → NOV 2024</div>
+        <div class="job-title-text">Senior HR Generalist</div>
+        <div class="job-company">Hospitrendia</div>
+      </div>
+      <ul class="job-bullets">
+        <li>Spearheaded company-wide OKR rollout — <strong>80% completion in 6 months</strong>, cross-functional delivery up 12%</li>
+        <li>Shifted culture from annual reviews to continuous feedback — timely submissions up <strong>40%</strong></li>
+        <li>Designed L&D interventions from skills-gap analysis — <strong>15% productivity improvement</strong> measured by output-per-headcount</li>
+        <li>Supported DEI initiatives, grievance handling & manager-employee mediation during rapid growth</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="wins">
+  <div class="section-tag">Key Wins</div>
+  <div class="wins-grid">
+    <div class="win">
+      <div class="win-num">50%</div>
+      <div class="win-title">Attrition Reduction</div>
+      <div class="win-desc">Dropped monthly churn from 15% to 7% through structured retention strategy, stay interviews & manager coaching. Less churn = more runway.</div>
+    </div>
+    <div class="win" style="transition-delay:0.1s">
+      <div class="win-num">94%</div>
+      <div class="win-title">Employee Satisfaction</div>
+      <div class="win-desc">Led end-to-end Great Place to Work certification from survey design through action planning, manager briefings & leadership reporting.</div>
+    </div>
+    <div class="win" style="transition-delay:0.2s">
+      <div class="win-num">80%</div>
+      <div class="win-title">OKR Adoption</div>
+      <div class="win-desc">Implemented enterprise-wide goal alignment framework in 6 months, cascading company OKRs to individual KPIs. Cross-functional delivery up 12%.</div>
+    </div>
+    <div class="win" style="transition-delay:0.3s">
+      <div class="win-num">25%</div>
+      <div class="win-title">Better Offer Acceptance</div>
+      <div class="win-desc">Built competency-based talent acquisition engine with ATS-aligned JDs, structured scorecards & funnel analytics.</div>
+    </div>
+    <div class="win" style="transition-delay:0.4s">
+      <div class="win-num">15%</div>
+      <div class="win-title">Productivity Gain</div>
+      <div class="win-desc">Deployed KPI-linked performance management system measured via output-per-headcount, reducing performance-related attrition.</div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="section-tag">Skills & Tools</div>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-group-title">People Strategy</div>
+      <div class="skill-tags">
+        <span class="stag" style="transition-delay:0.05s">HRBP</span>
+        <span class="stag" style="transition-delay:0.1s">Workforce Planning</span>
+        <span class="stag" style="transition-delay:0.15s">Headcount Forecasting</span>
+        <span class="stag" style="transition-delay:0.2s">OD</span>
+        <span class="stag" style="transition-delay:0.25s">Succession</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Talent & Culture</div>
+      <div class="skill-tags">
+        <span class="stag" style="transition-delay:0.1s">Full-Cycle Hiring</span>
+        <span class="stag" style="transition-delay:0.15s">Employer Branding</span>
+        <span class="stag" style="transition-delay:0.2s">ATS Optimisation</span>
+        <span class="stag" style="transition-delay:0.25s">DEI</span>
+        <span class="stag" style="transition-delay:0.3s">Great Place to Work</span>
+        <span class="stag" style="transition-delay:0.35s">Engagement</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Performance</div>
+      <div class="skill-tags">
+        <span class="stag" style="transition-delay:0.15s">OKR Design</span>
+        <span class="stag" style="transition-delay:0.2s">KPI</span>
+        <span class="stag" style="transition-delay:0.25s">360° Feedback</span>
+        <span class="stag" style="transition-delay:0.3s">PIP</span>
+        <span class="stag" style="transition-delay:0.35s">L&D</span>
+        <span class="stag" style="transition-delay:0.4s">TNA</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Analytics & Compliance</div>
+      <div class="skill-tags">
+        <span class="stag" style="transition-delay:0.2s">HR Analytics</span>
+        <span class="stag" style="transition-delay:0.25s">Attrition Analysis</span>
+        <span class="stag" style="transition-delay:0.3s">POSH</span>
+        <span class="stag" style="transition-delay:0.35s">Labour Law</span>
+        <span class="stag" style="transition-delay:0.4s">HR Policy</span>
+        <span class="stag" style="transition-delay:0.45s">HRIS</span>
+      </div>
+    </div>
+  </div>
+  <div class="tools-row">
+    <div class="tool-badge" style="transition-delay:0.05s"><span class="tool-dot"></span>SAP SuccessFactors</div>
+    <div class="tool-badge" style="transition-delay:0.1s"><span class="tool-dot"></span>Tallite HRMS</div>
+    <div class="tool-badge" style="transition-delay:0.15s"><span class="tool-dot"></span>Woco</div>
+    <div class="tool-badge" style="transition-delay:0.2s"><span class="tool-dot"></span>Advanced Excel</div>
+    <div class="tool-badge" style="transition-delay:0.25s"><span class="tool-dot"></span>ATS Platforms</div>
+    <div class="tool-badge" style="transition-delay:0.3s"><span class="tool-dot"></span>HR Dashboard Reporting</div>
+    <div class="tool-badge" style="transition-delay:0.35s"><span class="tool-dot"></span>People Analytics</div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-big">Let's build<br>something <span>great.</span></div>
+  <p class="contact-sub">
+    I take ownership of every people decision I make — and I'm ready to bring that same accountability to your team. If you're building something worth joining, I want to be in that conversation.
+  </p>
+  <div class="contact-links">
+    <a href="/cdn-cgi/l/email-protection#c0a4a5a5b0b4a5b3a8a880a7ada1a9aceea3afad" class="cta-email">
+      <i class="cta-icon">✉</i>
+      <span class="lbl">Email Me ↗</span>
+    </a>
+    <a href="https://www.linkedin.com/in/deepteshparab/" target="_blank" class="cta-linkedin">
+      <i class="cta-icon">in</i>
+      <span class="lbl">LinkedIn →</span>
+    </a>
+    <a href="tel:+918805049698" class="cta-call" id="callBtn">
+      <i class="cta-icon">☎</i>
+      <span class="lbl">Call Me →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DEEPTESH PARAB</div>
+  <div class="footer-tag">People Lead · Culture Builder · HR Business Partner</div>
+</footer>
+<script>
+document.getElementById('callBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+  this.querySelector('.lbl').textContent = '+91 88050 49698';
+  setTimeout(function(){ window.location.href = 'tel:+918805049698'; }, 800);
+});
+
+var io = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    io.unobserve(e.target);
+  });
+}, { threshold: 0.1 });
+
+['.metric','.section-tag','.about-big','.about-body','.pill',
+ '.job','.win','.stag','.tool-badge',
+ '.contact-big','.contact-sub','.cta-email','.cta-linkedin','.cta-call'
+].forEach(function(sel){ document.querySelectorAll(sel).forEach(function(el){ io.observe(el); }); });
+
+document.querySelectorAll('.metric').forEach(function(el,i){ el.style.transitionDelay = (i*0.12)+'s'; });
+
+var countObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    var numEl = e.target.querySelector('.metric-num');
+    if (!numEl || numEl.dataset.done) return;
+    numEl.dataset.done = '1';
+    var raw = numEl.textContent.trim();
+    var suffix = raw.replace(/[\d.]/g, '');
+    var target = parseFloat(raw);
+    var dur = 1400, start = performance.now();
+    function tick(now) {
+      var p = Math.min((now - start) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      numEl.textContent = Math.round(target * ease) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    countObs.unobserve(e.target);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.metric').forEach(function(el){ countObs.observe(el); });
+</script>
+</body>
+</html>
